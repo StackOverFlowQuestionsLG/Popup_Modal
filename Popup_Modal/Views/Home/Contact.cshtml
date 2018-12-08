@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<button type="button" class="btn-block" style="width:225px">Modal </button>
+<div class="modal fade" id="myModal" role="dialog" data-url='@Url.Action("PartialViewTest","Home")'></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.btn-block').click(function () {
+
+            var url = $('#myModal').data('url');
+            $.get(url, function (data) {
+
+                $("#myModal").html(data);
+                $("#myModal").modal('show');
+            });
+        });
+
+    });
+</script>
